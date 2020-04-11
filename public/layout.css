@@ -61,15 +61,22 @@ div.grid-form {
   margin-left: auto;
 }
 .input-box input.submit:hover {
-  /*inserire */
+  border-color: #F3A;
+  color: #F3A;
+}
+.form:hover {
+  border-color: #F3AD16;
 }
 /*forse va eliminato??? */
 .connected > p {
   color: #00D42A;
 }
-/*forse va eliminato??? */
-.error > p {
+.error {
+  text-align: left;
+}
+.error > ul {
   color: red;
+
 }
 header {
   display: flex;
@@ -146,9 +153,6 @@ footer {
   background-color: #34495E;
   border-radius: 1rem;
   overflow: hidden;
-}
-.books-table > tr {
-
 }
 .books-table th {
   text-align: left;

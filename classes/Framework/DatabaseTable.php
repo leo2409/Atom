@@ -1,5 +1,5 @@
 <?php
-namespace LFramework;
+namespace Framework;
 
 class DatabaseTable
 {
@@ -46,6 +46,13 @@ class DatabaseTable
         $parameters = [':id' => $id ];
         $query = $this->query($sql,$parameters);
         return $query->fetch();
+    }
+
+    public function find($column, $value) {
+      $sql = 'SELECT * FROM ' . $this->table . ' WHERE ' . $column . ' = :value;';
+      $parameters = ['value' => $value];
+      $query = $this->query($sql, $parameters);
+      return $query->fetchAll();
     }
 
     public function total() {
