@@ -6,7 +6,7 @@ class EntryPoint {
     private $method;
     private $routes;
 
-    public function __construct(string $url, \Framework\RoutesInterface $routes, string $method) {
+    public function __construct(string $url, \Framework\Interfaces\RoutesInterface $routes, string $method) {
         $this->url = $url;
         $this->method = $method;
         $this->routes = $routes;
@@ -29,16 +29,21 @@ class EntryPoint {
 
     public function run() {
         $route = $this->routes->getRoute();
-        $controller = $route[$this->url][$this->method]['controller'];
-        $action = $route[$this->url][$this->method]['action'];
-        $page = $controller->$action();
-        $title = $page['title'];
-        if (isset($page['variables'])) {
-            $output = $this->loadTemplate($page['template'], $page['variables']);
+        $authentication = $this->routes->getAuthentication();
+        if (isset($route[$this->url]['login']) && !$authentication->isLoggedIn()) {
+            header('location: information.html');
         } else {
-            $output = $this->loadTemplate($page['template']);
-        }
-        include __DIR__ . '/../../layout/layout.html.php';
+            $controller = $route[$this->url][$this->method]['controller'];
+            $action = $route[$this->url][$this->method]['action'];
+            $page = $controller->$action();
+            $title = $page['title'];
+            if (isset($page['variables'])) {
+                $output = $this->loadTemplate($page['template'], $page['variables']);
+            } else {
+                $output = $this->loadTemplate($page['template']);
+            }
+            include __DIR__ . '/../../layout/layout.html.php';
+        };
     }
 }
 ?>

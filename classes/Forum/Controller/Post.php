@@ -10,11 +10,30 @@ class Post {
 
     public function home() {
         return [
-            'template' => 'roba',
-            'title' => 'home',
+            'title' => 'Home',
+            'template' => 'home.html.php',
         ];
     }
 
+    public function edit() {
+        $title = 'Post';
+        if (isset($_POST['id'])) {
+            $post = findById($_POST['id']);
+        }
+        return [
+            'title' => $title,
+            'template' => 'postForm.html.php',
+            'variable' => [
+                'post' => $post ?? NULL,
+            ],
+        ];
+    }
+
+    public function information() {
+        return [
+            'template' => ''
+        ];
+    }
     
 }
 ?>

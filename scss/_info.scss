@@ -1,0 +1,65 @@
+.info {
+    text-align: center;
+    background-color: $primary-color;
+    background-image: linear-gradient(to bottom, $primary-color, $tertiary-color);
+    color: white;
+    padding: 1.5rem 0;
+    min-height: 80%;
+
+    .logo {
+
+        &-svg {
+            display: block;
+            margin: 0 auto;
+            height: 10rem;
+        }
+    }
+
+    .presentation {
+        margin: 1.5rem auto 2.5rem auto;
+        max-width: 400px;
+        padding: 0 0.4rem;
+        h1 {
+            font-size: 3rem;
+        }
+
+        p {
+            margin-top: 0.5rem;
+            line-height: 1.2;
+        }
+    }
+
+    .link-box {
+        margin-top: 2rem;
+        display: flex;
+        flex-flow: wrap row;
+        justify-content: center;
+        text-align: center;
+        .signin-link {
+            color:#13ec58;
+            padding: 0.5rem 0.80rem;
+            border: 1px solid #13ec58;
+            border-radius: 5px;
+            font-size: 1.20rem;
+            font-weight: 600;
+            margin: 0 1rem;
+            &:hover {
+                background-color: #13ec58;
+                color: black;
+            }
+        }
+        .login-link {
+            color:#ffae00;
+            padding: 0.5rem 0.9rem;
+            border: 1px solid #ffae00;
+            border-radius: 5px;
+            font-size: 1.20rem;
+            font-weight: 600;
+            margin: 0 1rem;
+            &:hover {
+                background-color: #ffae00;
+                color: black;
+            }
+        }
+    }
+}

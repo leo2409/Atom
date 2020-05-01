@@ -5,7 +5,9 @@ body {
   margin: 0;
 }
 main {
-  margin: 3rem 10rem;
+  padding: 3rem 0rem;
+  width: 95%;
+  /*background-color: #DAE0E6;*/
 }
 section {
   min-height: 30rem;
@@ -25,8 +27,9 @@ div.grid-form {
   min-width: 50%;
   max-width: 60%;
   text-align: center;
-  border: 2px solid grey;
+  border: 2px solid #808080;
   padding: 1rem;
+  background-color: white;
 }
 .input-box {
   text-align: center;
@@ -37,7 +40,7 @@ div.grid-form {
 .input-box input {
   display: block;
   font-size: 1.3rem;
-  border: 2px solid grey;
+  border: 2px solid #808080;
   border-radius:5px;
   padding: 0.5rem 1.25rem;
   margin-top: 0.3rem;
@@ -68,15 +71,12 @@ div.grid-form {
   border-color: #F3AD16;
 }
 /*forse va eliminato??? */
-.connected > p {
+.connected {
   color: #00D42A;
 }
 .error {
   text-align: left;
-}
-.error > ul {
   color: red;
-
 }
 header {
   display: flex;
@@ -162,4 +162,55 @@ footer {
 .books-table td {
   color: #fff;
   padding: 1rem;
+}
+
+/* HOMEPAGE STYLE */
+.homepage {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+}
+
+.post {
+  margin: 0 auto;
+  border: 0.5px solid darkgray;
+  border-radius: 0.25rem;
+  width: 95%;
+  max-width: 800px;
+  background-color: white;
+  padding:0  0.75rem;
+}
+
+.header-post{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.sign-form {
+  color: darkgray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-post input{
+  font-size: medium;
+  border: none;
+  border: 0.5px solid darkgray;
+  border-radius: 4px;
+  padding: 0.3rem 0.75rem;
+}
+
+.sign-form .sign {
+  margin-right: 1rem;
+}
+
+.title-post h2 {
+  margin: 0;
+}
+
+.sign p {
+  margin: 0;
 }
