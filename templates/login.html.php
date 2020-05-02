@@ -15,11 +15,11 @@
             <div class="grid-form">
                  <div class="input-box">
                     <label for="email">Email</label>
-                    <input id="email" type="email" name="email" placeholder="email" value="<?=$user['email'] ?? '' ?>">
+                    <input id="email" type="email" name="email" class="normal-input" placeholder="email" value="<?=$user['email'] ?? '' ?>">
                 </div>
                 <div class="input-box">
                     <label for="password">Password</label>
-                    <input id="password" type="password" name="password" placeholder="password">
+                    <input id="password" type="password" name="password" class="normal-input" placeholder="password">
                 </div>
             </div>
             <div class="input-box">

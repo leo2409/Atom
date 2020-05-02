@@ -19,6 +19,16 @@ class DatabaseTable
         $stmt->execute($parameters);
         return $stmt;
     }
+
+    private function processDate($fields) {
+      foreach ($fields as $key => $value) {
+        if ($value instanceof DateTime) {
+          $fields[$key] = $value->format('Y-m-d H:i:s');
+        }
+      }
+
+      return $fields;
+    }
     
     public function save($record) 
     {
@@ -77,6 +87,9 @@ class DatabaseTable
           $sql .= ' ' . $key . '= :' . $key . ',';
         }
         $sql = rtrim($sql,',') . ';';
+
+        $fields = precessDate($fields);
+
         $this->query($sql,$fields);
     }
 
@@ -88,6 +101,9 @@ class DatabaseTable
         }
         $sql = rtrim($sql, ',');
         $sql .= ' WHERE ' . $this->primarykey . ' = :id_libro;';
+
+        $fields = precessDate($fields);
+
         $this->query($sql,$fields);
     }
 }

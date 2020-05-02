@@ -15,8 +15,6 @@
 
     .error {
         margin: 1rem 2rem;
-        color: $error;
-
     }
 
     form {
@@ -28,11 +26,15 @@
             margin: 3rem auto 2rem auto;
             align-items: space-around;
         }
+
+        .grid-form-post {
+            margin: 3rem auto 2rem auto;
+        }
     }
 
     .input-box {
         margin-top: 1rem;
-        input {
+        input,textarea {
             display: block;
             margin-top: 0.3rem;
             border-radius: 0.3rem;
@@ -46,6 +48,15 @@
             &:focus {
                 border-color: #03a9f4;
             }
+        }
+
+        .normal-input {
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .textarea-input {
+            width: 100%;
         }
 
         .submit {

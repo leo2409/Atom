@@ -4,6 +4,38 @@ nav.header {
     background-color: $primary-color;
     width: 100%;
     color: $lightgray;
+
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .edit_Btn {
+        display: inline;
+        border: 2.5px $tertiary-color solid;
+        border-radius: 5px;
+
+        a {
+            display: block;
+            padding: 0.2rem;
+
+            .edit {
+                font-size: 1.3rem;
+                color: $tertiary-color;
+            }
+        }
+    }
+
+    .logout {
+        display: inline;
+        padding: 0 0.2rem;
+        margin-right: 0.3rem;
+
+        a {
+            color: $tertiary-color;
+        }
+    }
+
     .nav-small {
         width: 100%;
         justify-content: space-between;
@@ -13,20 +45,8 @@ nav.header {
         z-index: 2;
     
         .logo {
-    
             &-svg {
                 height: 2.4rem;
-            }
-        }
-    
-
-        .edit_Btn {
-            border: 2.5px $tertiary-color solid;
-            border-radius: 5px;
-            padding: 0.2rem;
-            .edit {
-                font-size: 1.3rem;
-                color: $tertiary-color;
             }
         }
     
@@ -57,18 +77,9 @@ nav.header {
         z-index: 2;
         margin: 0 auto;
     
-        .edit_Btn {
-            border: 2.5px $tertiary-color solid;
-            border-radius: 5px;
-            padding: 0.2rem;
-            .edit {
-                font-size: 1.3rem;
-                color: $tertiary-color;
-            }
-        }
-    
         .logo {
-    
+            margin-right: 3.6rem;
+
             &-svg {
                 height: 2.4rem;
             }

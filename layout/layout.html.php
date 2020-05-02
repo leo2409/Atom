@@ -9,6 +9,8 @@
   </head>
   <body>
   <nav class="header">
+
+      <!--NAV SMALL -->
       <div class="nav-small">
           <div class="burger_Btn">
               <div class="line1"></div>
@@ -16,26 +18,28 @@
               <div class="line3"></div>
           </div>
           <div class="logo">
-              <a href="">
+              <a href="index.php?route=home">
                 <img src="svg/atom-logo.svg" alt="" class="logo-svg">
               </a>
           </div>
           <div class="edit_Btn">
-              <a href="" class="nav-ul-li-a">
+              <a href="index.php?route=post/edit" class="nav-ul-li-a">
                   <i class="edit fas fa-pencil-alt"></i>
               </a>
           </div>
       </div>
+
+      <!--NAV LARGE -->
       <div class="nav-large">
           <div class="logo">
-              <a href="">
+              <a href="index.php?route=home">
                 <img src="svg/atom-logo.svg" alt="" class="logo-svg">
               </a>
           </div>
           <div class="ul-open">
               <ul>
                   <li>
-                      <a href="">Home</a>
+                      <a href="index.php?route=home">Home</a>
                   </li>
                   <li>
                       <a href="">Search</a>
@@ -45,12 +49,22 @@
                   </li>
               </ul>
           </div>
-          <div class="edit_Btn">
-              <a href="" class="nav-ul-li-a">
-                  <i class="edit fas fa-pencil-alt"></i>
-              </a>
+          <div class="btn">
+            <div class="logout">
+              <?php if ($loggedIn) : ?>
+                <a href="index.php?route=logout">Logout</a>
+              <?php else: ?>
+                <a href="index.php?route=login">Login</a>
+              <?php endif; ?>
+            </div>
+            <div class="edit_Btn">
+                <a href="index.php?route=post/edit" class="nav-ul-li-a">
+                    <i class="edit fas fa-pencil-alt"></i>
+                </a>
+            </div>
           </div>
       </div>
+
   </nav>
   <main>
     <?=$output?>

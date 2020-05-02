@@ -42,6 +42,7 @@ class EntryPoint {
             } else {
                 $output = $this->loadTemplate($page['template']);
             }
+            $loggedIn = $authentication->isLoggedIn();
             include __DIR__ . '/../../layout/layout.html.php';
         };
     }

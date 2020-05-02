@@ -3,9 +3,11 @@ namespace Forum\Controller;
 
 class Post {
     private $postTable;
+    private $userTable;
 
-    public function __construct(\Framework\DatabaseTable $postTable) {
+    public function __construct(\Framework\DatabaseTable $postTable, \Framework\DatabaseTable $userTable) {
         $this->postTable = $postTable;
+        $this->userTable = $userTable;
     }
 
     public function home() {
@@ -16,7 +18,7 @@ class Post {
     }
 
     public function edit() {
-        $title = 'Post';
+        $title = 'Edit Post';
         if (isset($_POST['id'])) {
             $post = findById($_POST['id']);
         }
@@ -29,11 +31,11 @@ class Post {
         ];
     }
 
-    public function information() {
-        return [
-            'template' => ''
-        ];
+    public function saveEdit() {
+        $fields = $_POST['post'];
+        
+        $joke['jokedate'] = new DateTime();
+        
     }
-    
 }
 ?>

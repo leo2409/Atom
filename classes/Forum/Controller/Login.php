@@ -52,5 +52,14 @@ class Login {
             'title' => 'Login Sucessful'
         ];
     }
+
+    public function logout() {
+        unset($_SESSION['password']);
+        unset($_SESSION['username']);
+        return[
+            'template' => 'logout.html.php',
+            'title' => 'Logout'
+        ];
+    }
  }
 ?>

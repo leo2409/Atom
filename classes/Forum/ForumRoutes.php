@@ -14,10 +14,12 @@ class ForumRoutes implements \Framework\Interfaces\RoutesInterface{
     }
 
     public function getRoute(): array {
-        $postController = new \Forum\Controller\Post($this->postTable);
+        $postController = new \Forum\Controller\Post($this->postTable, $this->userTable);
         $userController = new \Forum\Controller\Register($this->userTable);
         $loginController = new \Forum\Controller\Login($this->authentication);
         $routes = [
+
+            #REGISTER
             'user/register' => [
                 'GET' => [
                     'controller' => $userController,
@@ -34,6 +36,8 @@ class ForumRoutes implements \Framework\Interfaces\RoutesInterface{
                     'action' => 'success',
                 ]
             ],
+
+            # LOGIN
             'login' => [
                 'GET' => [
                     'controller' => $loginController,
@@ -61,6 +65,15 @@ class ForumRoutes implements \Framework\Interfaces\RoutesInterface{
                     'action' => 'processlogin',
                 ]
             ],
+            'logout' => [
+                'GET' => [
+                    'controller' => $loginController,
+                    'action' => 'logout',
+                ]
+            ],
+
+
+            # HOME
             'home' => [
                 'GET' => [
                     'controller' => $postController,
@@ -68,6 +81,8 @@ class ForumRoutes implements \Framework\Interfaces\RoutesInterface{
                 ],
                 'login' => true
             ],
+
+            # POST
             'post/delete' => [
                 'POST' => [
                     'controller' => $postController,
