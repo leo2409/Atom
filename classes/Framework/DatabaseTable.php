@@ -22,7 +22,7 @@ class DatabaseTable
 
     private function processDate($fields) {
       foreach ($fields as $key => $value) {
-        if ($value instanceof DateTime) {
+        if ($value instanceof \DateTime) {
           $fields[$key] = $value->format('Y-m-d H:i:s');
         }
       }
@@ -49,6 +49,13 @@ class DatabaseTable
         $result = $this->query('SELECT * FROM ' . $this->table . ';');
         return $result->fetchAll();
     }
+
+    public function homePosts() 
+    {
+      $sql = 'SELECT post.title,post.body,post.date,post.user_id,user.username FROM atom.post,atom.user where post.user_id = user.id;';
+      $result = $this->query($sql);
+      return $result->fetchAll();
+    } 
 
     public function findById($id) 
     {
@@ -88,7 +95,7 @@ class DatabaseTable
         }
         $sql = rtrim($sql,',') . ';';
 
-        $fields = precessDate($fields);
+        $fields = $this->processDate($fields);
 
         $this->query($sql,$fields);
     }
@@ -102,7 +109,7 @@ class DatabaseTable
         $sql = rtrim($sql, ',');
         $sql .= ' WHERE ' . $this->primarykey . ' = :id_libro;';
 
-        $fields = precessDate($fields);
+        $fields = $this->processDate($fields);
 
         $this->query($sql,$fields);
     }

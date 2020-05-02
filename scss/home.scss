@@ -1,0 +1,47 @@
+.post {
+    background-color: $surface;
+    border: 1px solid #434648;
+    border-radius: 0.8rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+
+    .header-post {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        
+        .title {
+            display: inline;
+            h2 {
+                display: inline;
+                font-size: 2.5rem;
+            }
+        }
+
+        .sign {
+            display: inline;
+            p {
+                display: inline;
+            }
+        }
+
+        .post-edit {
+
+            input {
+                display: block;
+                border-radius: 0.3rem;
+                border: 1px solid $tertiary-color;
+                outline: none;
+                background-color: $surface;
+                padding: 0.3rem 0.8rem;
+                color: lightgray;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .body {
+        line-height: 1.4;
+    }
+}

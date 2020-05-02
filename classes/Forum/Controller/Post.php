@@ -4,16 +4,23 @@ namespace Forum\Controller;
 class Post {
     private $postTable;
     private $userTable;
+    private $authentication;
 
-    public function __construct(\Framework\DatabaseTable $postTable, \Framework\DatabaseTable $userTable) {
+    public function __construct(\Framework\DatabaseTable $postTable, \Framework\DatabaseTable $userTable, \Framework\Authentication $authentication) {
         $this->postTable = $postTable;
         $this->userTable = $userTable;
+        $this->authentication = $authentication;
     }
 
     public function home() {
+        $posts = [];
+        $posts = $this->postTable->homePosts();
         return [
             'title' => 'Home',
             'template' => 'home.html.php',
+            'variables' => [
+                'posts' => $posts ?? NULL,
+            ],
         ];
     }
 
@@ -25,17 +32,21 @@ class Post {
         return [
             'title' => $title,
             'template' => 'postForm.html.php',
-            'variable' => [
+            'variables' => [
                 'post' => $post ?? NULL,
             ],
         ];
     }
 
     public function saveEdit() {
+        $user = $this->authentication->getUser();
+
         $fields = $_POST['post'];
-        
-        $joke['jokedate'] = new DateTime();
-        
+        $fields['date'] = new \DateTime();
+        $fields['user_id'] = $user['id'];
+
+        $this->postTable->save($fields);
+        header('location: index.php?route=home');
     }
 }
 ?>

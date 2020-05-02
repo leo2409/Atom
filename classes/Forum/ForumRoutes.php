@@ -14,7 +14,7 @@ class ForumRoutes implements \Framework\Interfaces\RoutesInterface{
     }
 
     public function getRoute(): array {
-        $postController = new \Forum\Controller\Post($this->postTable, $this->userTable);
+        $postController = new \Forum\Controller\Post($this->postTable, $this->userTable, $this->authentication);
         $userController = new \Forum\Controller\Register($this->userTable);
         $loginController = new \Forum\Controller\Login($this->authentication);
         $routes = [
