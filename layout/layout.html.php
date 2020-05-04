@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <script src="https://kit.fontawesome.com/d6104b104e.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     <title><?=$title?></title>
   </head>
   <body>
@@ -33,19 +34,19 @@
           <div class="list">
             <ul>
               <li>
-                  <a href="index.php?route=home">Home</a>
+                  <a href="index.php?route=home"><i class="icon fas fa-skull"></i>Home</a>
               </li>
               <li>
-                  <a href="">Search</a>
+                  <a href=""><i class="icon fas fa-search"></i>Search</a>
               </li>
               <li>
-                  <a href="">Profile</a>
+                  <a href=""><i class="icon fas fa-user-circle"></i>Profile</a>
               </li>
               <li>
                 <?php if ($loggedIn) : ?>
-                  <a href="index.php?route=logout">Logout</a>
+                  <a href="index.php?route=logout"><i class="icon fas fa-sign-out-alt"></i>Logout</a>
                 <?php else: ?>
-                  <a href="index.php?route=login">Login</a>
+                  <a href="index.php?route=login"><i class="icon fas fa-sign-in-alt"></i>Login</a>
                 <?php endif; ?>
               </li>
             </div>

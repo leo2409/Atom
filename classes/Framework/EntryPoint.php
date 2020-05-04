@@ -20,10 +20,12 @@ class EntryPoint {
         }
     }
 
-    private function loadTemplate($templateName, $variables = [] ) {
+    private function loadTemplate($templates, $variables = [] ) {
         extract($variables);
         ob_start();
-        include __DIR__ . '/../../templates/' . $templateName;
+        foreach ($templates as $templateName) {
+            include __DIR__ . '/../../templates/' . $templateName;
+        }
         return ob_get_clean();
     }
 
@@ -38,9 +40,9 @@ class EntryPoint {
             $page = $controller->$action();
             $title = $page['title'];
             if (isset($page['variables'])) {
-                $output = $this->loadTemplate($page['template'], $page['variables']);
+                $output = $this->loadTemplate($page['templates'], $page['variables']);
             } else {
-                $output = $this->loadTemplate($page['template']);
+                $output = $this->loadTemplate($page['templates']);
             }
             $loggedIn = $authentication->isLoggedIn();
             include __DIR__ . '/../../layout/layout.html.php';

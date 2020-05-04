@@ -15,9 +15,19 @@ class Post {
     public function home() {
         $posts = [];
         $posts = $this->homePosts();
+        if (isset($_GET['firstA'])) {
+            $templates = [
+                'login_success.html.php',
+                'home.html.php',
+            ];
+        } else {
+            $templates = [
+                'home.html.php',
+            ];
+        }
         return [
             'title' => 'Home',
-            'template' => 'home.html.php',
+            'templates' =>$templates,
             'variables' => [
                 'posts' => $posts ?? NULL,
             ],
@@ -31,7 +41,9 @@ class Post {
         }
         return [
             'title' => $title,
-            'template' => 'postForm.html.php',
+            'templates' => [
+                'template' => 'postForm.html.php',
+            ],
             'variables' => [
                 'post' => $post ?? NULL,
             ],

@@ -1,10 +1,27 @@
-.post {
+.post, .login-successful, .logout-box {
     background-color: $surface;
     border: 1px solid #434648;
     border-radius: 0.8rem;
     padding: 1rem;
     margin-bottom: 0.5rem;
+    
+    .icon {
+        margin-right: 0.5rem;
+    }
 
+    .flex-login-successful {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        .x-Btn {
+            color: $lightgray;
+            padding: 0.3rem;
+            cursor: pointer;
+        }
+    }
+    
     .title-sign {
         display: block;
         position: relative;
@@ -40,8 +57,16 @@
         margin-top: 0.5rem;
 
         .edit-link {
-            
-            margin-right: 0.5rem;
+            padding: 0.3rem;
+            margin-right: 0.2rem;
         }
+
+        .delete-link {
+            padding: 0.3rem;
+        }
+    }
+
+    &.x {
+        display: none;
     }
 }

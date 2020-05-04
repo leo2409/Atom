@@ -12,7 +12,9 @@ class Register {
         $title = 'Register an account';
         return [
             'title' => $title,
-            'template' => 'register_form.html.php'
+            'templates' => [  
+                'template' => 'register_form.html.php'
+            ],
         ];
     }
 
@@ -53,7 +55,9 @@ class Register {
             header('location: index.php?route=user/success');
         } else {
             return [
-                'template' => 'register_form.html.php',
+                'templates' => [  
+                    'template' => 'register_form.html.php',
+                ],
                 'title' => 'Register an account',
                 'variables' => [
                     'errors' => $error,
@@ -67,7 +71,9 @@ class Register {
         $title = 'Registration seccussful';
         return [
             'title' => $title,
-            'template' => 'register_success.html.php'
+            'templates' => [  
+                'template' => 'register_success.html.php'
+            ],
         ];
     }
 }

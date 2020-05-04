@@ -48,13 +48,6 @@ class ForumRoutes implements \Framework\Interfaces\RoutesInterface{
                     'action' => 'processlogin',
                 ]
             ],
-            'login/success' => [
-                'GET' => [
-                    'controller' => $loginController,
-                    'action' => 'success',
-                ],
-                'login' => true
-            ],
             'login/error' => [
                 'GET' => [
                     'controller' => $loginController,
