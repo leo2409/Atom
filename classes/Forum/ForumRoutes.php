@@ -84,7 +84,7 @@ class ForumRoutes implements \Framework\Interfaces\RoutesInterface{
 
             # POST
             'post/delete' => [
-                'POST' => [
+                'GET' => [
                     'controller' => $postController,
                     'action' => 'delete',
                 ],
@@ -100,7 +100,7 @@ class ForumRoutes implements \Framework\Interfaces\RoutesInterface{
                     'action' => 'edit',
                 ],
                 'login' => true
-            ] 
+            ],
 
         ];
         return $routes;

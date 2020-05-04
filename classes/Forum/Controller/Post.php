@@ -14,7 +14,7 @@ class Post {
 
     public function home() {
         $posts = [];
-        $posts = $this->postTable->homePosts();
+        $posts = $this->homePosts();
         return [
             'title' => 'Home',
             'template' => 'home.html.php',
@@ -26,8 +26,8 @@ class Post {
 
     public function edit() {
         $title = 'Edit Post';
-        if (isset($_POST['id'])) {
-            $post = findById($_POST['id']);
+        if (isset($_GET['id'])) {
+            $post = $this->postTable->findById($_GET['id']);
         }
         return [
             'title' => $title,
@@ -48,5 +48,18 @@ class Post {
         $this->postTable->save($fields);
         header('location: index.php?route=home');
     }
+
+    public function delete() {
+        $this->postTable->remove($_GET['id']);
+
+        header('location: index.php?route=home');
+    }
+
+    private function homePosts() 
+    {
+      $sql = 'SELECT post.id,post.title,post.body,post.date,post.user_id,user.username FROM atom.post,atom.user where post.user_id = user.id ORDER BY post.date DESC;';
+      $result = $this->postTable->query($sql);
+      return $result->fetchAll();
+    } 
 }
 ?>

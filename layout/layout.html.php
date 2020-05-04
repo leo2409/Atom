@@ -12,20 +12,43 @@
 
       <!--NAV SMALL -->
       <div class="nav-small">
-          <div class="burger_Btn">
-              <div class="line1"></div>
-              <div class="line2"></div>
-              <div class="line3"></div>
-          </div>
-          <div class="logo">
-              <a href="index.php?route=home">
-                <img src="svg/atom-logo.svg" alt="" class="logo-svg">
-              </a>
-          </div>
-          <div class="edit_Btn">
-              <a href="index.php?route=post/edit" class="nav-ul-li-a">
-                  <i class="edit fas fa-pencil-alt"></i>
-              </a>
+        <div class="nav-small-flex">
+            <div class="burger_Btn">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <div class="logo">
+                <a href="index.php?route=home">
+                  <img src="svg/atom-logo.svg" alt="" class="logo-svg">
+                </a>
+            </div>
+            <div class="edit_Btn">
+                <a href="index.php?route=post/edit" class="nav-ul-li-a">
+                    <i class="edit fas fa-pencil-alt"></i>
+                </a>
+            </div>
+        </div>
+        <div class="hide-ul">
+          <div class="list">
+            <ul>
+              <li>
+                  <a href="index.php?route=home">Home</a>
+              </li>
+              <li>
+                  <a href="">Search</a>
+              </li>
+              <li>
+                  <a href="">Profile</a>
+              </li>
+              <li>
+                <?php if ($loggedIn) : ?>
+                  <a href="index.php?route=logout">Logout</a>
+                <?php else: ?>
+                  <a href="index.php?route=login">Login</a>
+                <?php endif; ?>
+              </li>
+            </div>
           </div>
       </div>
 
@@ -64,11 +87,16 @@
             </div>
           </div>
       </div>
-
   </nav>
+
+  <!-- MAIN -->
   <main>
     <?=$output?>
   </main>
+  
+  <script src=".\js\main.js"></script>
+  
+  <!-- FOOTER -->
   <footer>
     <div class="footer-content">
       <p>
@@ -81,5 +109,6 @@
       </div>
     </div>
   </footer>
+
   </body>
 </html>

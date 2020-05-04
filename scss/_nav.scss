@@ -4,6 +4,7 @@ nav.header {
     background-color: $primary-color;
     width: 100%;
     color: $lightgray;
+    z-index: 100;
 
     .btn {
         display: flex;
@@ -37,32 +38,91 @@ nav.header {
     }
 
     .nav-small {
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.3rem 0.8rem;
-        background-color: $primary-color;
-        z-index: 2;
+        .nav-small-flex {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.3rem 0.8rem;
+            background-color: $primary-color;
+        
+            .logo {
+                &-svg {
+                    height: 2.4rem;
+                }
+            }
     
-        .logo {
-            &-svg {
-                height: 2.4rem;
+            .burger_Btn{
+                cursor: pointer;
+                z-index: 106;
+                
+                div {
+                    width: 27px;
+                    height: 3px;
+                    background: $tertiary-color;
+                    border-radius: 2px;
+                    margin: 6px 0;
+                }
+    
+                &.open {
+                    transform:rotate(360deg)  translateX(6px);
+                    transition: all 0.7s ease-in-out;
+                }
+    
+                .open.line1 { 
+                    transform: rotate(45deg) translateY(12px);
+                    transition: all 0.7s ease-in-out;
+                }
+    
+                .open.line2 {
+                    background-color: transparent;
+                    transition: all 0.7s ease-in-out;
+                }
+    
+                .open.line3 {
+                    transform: rotate(-45deg) translateY(-12px);
+                    transition: all 0.4s ease-in-out;
+                }
             }
         }
-    
-        .burger_Btn{
-            cursor: pointer;
-            div {
-                width: 27px;
-                height: 3px;
-                background-color:$tertiary-color;
-                margin: 6px 0;
-                border-radius: 2px;
-            }
-    
+
+        .hide-ul {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 98%;
+            visibility: hidden;
+            background-color: $background;
+            transform: translateY(-100%);
+            z-index: 105;
+
             &.open {
-                transform:rotate(720deg);
-                
+                visibility: visible;
+                transform: translateY(0);
+                transition: all 0.4s ease-in-out;
+            }
+
+            .list {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 3rem 0;
+
+                ul {
+                    list-style: none;
+
+                    li {
+                        margin: 2rem 1rem;
+
+                        a {
+                            padding: 1rem 1rem;
+                            font-size: 1.2rem;
+                            font-weight: 400;
+
+                        }
+                    }
+                }
             }
         }
     }

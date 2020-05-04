@@ -13,49 +13,51 @@
   margin-bottom: 0.5rem;
 }
 
-.post .header-post {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.post .header-post .title {
-  display: inline;
-}
-
-.post .header-post .title h2 {
-  display: inline;
-  font-size: 2.5rem;
-}
-
-.post .header-post .sign {
-  display: inline;
-}
-
-.post .header-post .sign p {
-  display: inline;
-}
-
-.post .header-post .post-edit input {
+.post .title-sign {
   display: block;
-  border-radius: 0.3rem;
-  border: 1px solid #3e4646;
-  outline: none;
-  background-color: #1e1e1e;
-  padding: 0.3rem 0.8rem;
-  color: lightgray;
-  font-size: 1.2rem;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.post .title-sign .title {
+  display: inline;
+}
+
+.post .title-sign .title h2 {
+  display: inline;
+  font-size: 1.4rem;
+}
+
+.post .title-sign .sign {
+  display: inline;
+  color: #818384;
+}
+
+.post .title-sign .sign p {
+  display: inline;
 }
 
 .post .body {
+  margin: 0.5rem 0;
   line-height: 1.4;
+}
+
+.post .post-edit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 0.5rem;
+}
+
+.post .post-edit .edit-link {
+  margin-right: 0.5rem;
 }
 
 nav.header {
@@ -64,6 +66,7 @@ nav.header {
   background-color: #2C8C84;
   width: 100%;
   color: #f5f5f7;
+  z-index: 100;
 }
 
 nav.header .btn {
@@ -104,8 +107,11 @@ nav.header .logout a {
   color: #3e4646;
 }
 
-nav.header .nav-small {
+nav.header .nav-small .nav-small-flex {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -114,28 +120,98 @@ nav.header .nav-small {
           align-items: center;
   padding: 0.3rem 0.8rem;
   background-color: #2C8C84;
-  z-index: 2;
 }
 
-nav.header .nav-small .logo-svg {
+nav.header .nav-small .nav-small-flex .logo-svg {
   height: 2.4rem;
 }
 
-nav.header .nav-small .burger_Btn {
+nav.header .nav-small .nav-small-flex .burger_Btn {
   cursor: pointer;
+  z-index: 106;
 }
 
-nav.header .nav-small .burger_Btn div {
+nav.header .nav-small .nav-small-flex .burger_Btn div {
   width: 27px;
   height: 3px;
-  background-color: #3e4646;
-  margin: 6px 0;
+  background: #3e4646;
   border-radius: 2px;
+  margin: 6px 0;
 }
 
-nav.header .nav-small .burger_Btn.open {
-  -webkit-transform: rotate(720deg);
-          transform: rotate(720deg);
+nav.header .nav-small .nav-small-flex .burger_Btn.open {
+  -webkit-transform: rotate(360deg) translateX(6px);
+          transform: rotate(360deg) translateX(6px);
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
+nav.header .nav-small .nav-small-flex .burger_Btn .open.line1 {
+  -webkit-transform: rotate(45deg) translateY(12px);
+          transform: rotate(45deg) translateY(12px);
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
+nav.header .nav-small .nav-small-flex .burger_Btn .open.line2 {
+  background-color: transparent;
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
+nav.header .nav-small .nav-small-flex .burger_Btn .open.line3 {
+  -webkit-transform: rotate(-45deg) translateY(-12px);
+          transform: rotate(-45deg) translateY(-12px);
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+nav.header .nav-small .hide-ul {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 98%;
+  visibility: hidden;
+  background-color: #121212;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  z-index: 105;
+}
+
+nav.header .nav-small .hide-ul.open {
+  visibility: visible;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+nav.header .nav-small .hide-ul .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 3rem 0;
+}
+
+nav.header .nav-small .hide-ul .list ul {
+  list-style: none;
+}
+
+nav.header .nav-small .hide-ul .list ul li {
+  margin: 2rem 1rem;
+}
+
+nav.header .nav-small .hide-ul .list ul li a {
+  padding: 1rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 nav.header .nav-large {
@@ -217,7 +293,7 @@ nav.header .nav-large .ul-open ul li a:hover {
   line-height: 1.2;
 }
 
-.info .link-box {
+.signin-login-box {
   margin-top: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -232,7 +308,7 @@ nav.header .nav-large .ul-open ul li a:hover {
   text-align: center;
 }
 
-.info .link-box .signin-link {
+.signin-login-box .signin-link {
   color: #13ec58;
   padding: 0.5rem 0.80rem;
   border: 1px solid #13ec58;
@@ -242,12 +318,12 @@ nav.header .nav-large .ul-open ul li a:hover {
   margin: 0 1rem;
 }
 
-.info .link-box .signin-link:hover {
+.signin-login-box .signin-link:hover {
   background-color: #13ec58;
   color: black;
 }
 
-.info .link-box .login-link {
+.signin-login-box .login-link {
   color: #ffae00;
   padding: 0.5rem 0.9rem;
   border: 1px solid #ffae00;
@@ -257,7 +333,7 @@ nav.header .nav-large .ul-open ul li a:hover {
   margin: 0 1rem;
 }
 
-.info .link-box .login-link:hover {
+.signin-login-box .login-link:hover {
   background-color: #ffae00;
   color: black;
 }
@@ -352,6 +428,11 @@ nav.header .nav-large .ul-open ul li a:hover {
 
 body {
   background-color: #121212;
+  /*
+    PATTERN DI SFONDO
+    background-image: url("../../public/img/pattern-background2.png");
+    background-size: contain ;
+    */
   width: 100%;
   height: 100vh;
   font-family: 'Poppins', Arial, sans-serif;

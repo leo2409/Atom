@@ -13,7 +13,7 @@ class DatabaseTable
         $this->primarykey = $primarykey;
     }
 
-    private function query($sql,$parameters = []) 
+    public function query($sql,$parameters = []) 
     {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($parameters);
@@ -32,16 +32,16 @@ class DatabaseTable
     
     public function save($record) 
     {
-        try {
-          if(empty($record[$this->primarykey])) {
-            $this->primarykey = NULL;
-          }
-          // INSERT
-          $this->insert($record);
-        } catch (\PDOException $e) {
-          // UPDATE
-          $this->update($record);
+      try {
+        if(empty($record[$this->primarykey])) {
+          $this->primarykey = NULL;
         }
+        // INSERT
+        $this->insert($record);
+      } catch (\PDOException $e) {
+        // UPDATE
+        $this->update($record);
+      }
     }
 
     public function findAll() 
@@ -49,13 +49,6 @@ class DatabaseTable
         $result = $this->query('SELECT * FROM ' . $this->table . ';');
         return $result->fetchAll();
     }
-
-    public function homePosts() 
-    {
-      $sql = 'SELECT post.title,post.body,post.date,post.user_id,user.username FROM atom.post,atom.user where post.user_id = user.id;';
-      $result = $this->query($sql);
-      return $result->fetchAll();
-    } 
 
     public function findById($id) 
     {
@@ -107,8 +100,9 @@ class DatabaseTable
           $sql .= $key . ' = :' . $key . ",";
         }
         $sql = rtrim($sql, ',');
-        $sql .= ' WHERE ' . $this->primarykey . ' = :id_libro;';
+        $sql .= ' WHERE ' . $this->primarykey . ' = :primarykey;';
 
+        $fields['primarykey'] = $fields[$this->primarykey];
         $fields = $this->processDate($fields);
 
         $this->query($sql,$fields);

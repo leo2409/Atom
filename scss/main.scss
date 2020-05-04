@@ -7,11 +7,18 @@
 
 body {
     background-color: $background;
+    /*
+    PATTERN DI SFONDO
+    background-image: url("../../public/img/pattern-background2.png");
+    background-size: contain ;
+    */
     width: 100%;
     height: 100vh;
     font-family: 'Poppins', Arial, sans-serif;
     line-height: 1;
     color: $lightgray;
+
+
 
     a {
         text-decoration: none;
@@ -47,6 +54,7 @@ main {
     padding: 4rem 0.5rem;
     margin: 0 auto;
     min-height: 80%;
+    
 }
 
 .connected {
