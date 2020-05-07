@@ -5,7 +5,7 @@
   padding: 0;
 }
 
-.post, .login-successful, .logout-box {
+.post, .login-successful, .error-box {
   background-color: #1e1e1e;
   border: 1px solid #434648;
   border-radius: 0.8rem;
@@ -13,11 +13,7 @@
   margin-bottom: 0.5rem;
 }
 
-.post .icon, .login-successful .icon, .logout-box .icon {
-  margin-right: 0.5rem;
-}
-
-.post .flex-login-successful, .login-successful .flex-login-successful, .logout-box .flex-login-successful {
+.post .flex-login-successful, .login-successful .flex-login-successful, .error-box .flex-login-successful {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,43 +29,47 @@
           justify-content: space-between;
 }
 
-.post .flex-login-successful .x-Btn, .login-successful .flex-login-successful .x-Btn, .logout-box .flex-login-successful .x-Btn {
+.post .flex-login-successful .x-Btn, .login-successful .flex-login-successful .x-Btn, .error-box .flex-login-successful .x-Btn {
   color: #f5f5f7;
   padding: 0.3rem;
   cursor: pointer;
 }
 
-.post .title-sign, .login-successful .title-sign, .logout-box .title-sign {
+.post .icon, .login-successful .icon, .error-box .icon {
+  margin-right: 0.5rem;
+}
+
+.post .title-sign, .login-successful .title-sign, .error-box .title-sign {
   display: block;
   position: relative;
   top: 0;
   left: 0;
 }
 
-.post .title-sign .title, .login-successful .title-sign .title, .logout-box .title-sign .title {
+.post .title-sign .title, .login-successful .title-sign .title, .error-box .title-sign .title {
   display: inline;
 }
 
-.post .title-sign .title h2, .login-successful .title-sign .title h2, .logout-box .title-sign .title h2 {
+.post .title-sign .title h2, .login-successful .title-sign .title h2, .error-box .title-sign .title h2 {
   display: inline;
   font-size: 1.4rem;
 }
 
-.post .title-sign .sign, .login-successful .title-sign .sign, .logout-box .title-sign .sign {
+.post .title-sign .sign, .login-successful .title-sign .sign, .error-box .title-sign .sign {
   display: inline;
   color: #818384;
 }
 
-.post .title-sign .sign p, .login-successful .title-sign .sign p, .logout-box .title-sign .sign p {
+.post .title-sign .sign p, .login-successful .title-sign .sign p, .error-box .title-sign .sign p {
   display: inline;
 }
 
-.post .body, .login-successful .body, .logout-box .body {
+.post .body, .login-successful .body, .error-box .body {
   margin: 0.5rem 0;
   line-height: 1.4;
 }
 
-.post .post-edit, .login-successful .post-edit, .logout-box .post-edit {
+.post .post-edit, .login-successful .post-edit, .error-box .post-edit {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,16 +82,16 @@
   margin-top: 0.5rem;
 }
 
-.post .post-edit .edit-link, .login-successful .post-edit .edit-link, .logout-box .post-edit .edit-link {
+.post .post-edit .edit-link, .login-successful .post-edit .edit-link, .error-box .post-edit .edit-link {
   padding: 0.3rem;
   margin-right: 0.2rem;
 }
 
-.post .post-edit .delete-link, .login-successful .post-edit .delete-link, .logout-box .post-edit .delete-link {
+.post .post-edit .delete-link, .login-successful .post-edit .delete-link, .error-box .post-edit .delete-link {
   padding: 0.3rem;
 }
 
-.post.x, .login-successful.x, .logout-box.x {
+.post.x, .login-successful.x, .error-box.x {
   display: none;
 }
 
@@ -304,8 +304,8 @@ nav.header .nav-large .ul-open ul li a:hover {
 .info {
   text-align: center;
   background-color: #2C8C84;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#2C8C84), to(#3e4646));
-  background-image: linear-gradient(to bottom, #2C8C84, #3e4646);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#2C8C84), to(#0f332f));
+  background-image: linear-gradient(to bottom, #2C8C84, #0f332f);
   color: white;
   padding: 1.5rem 0;
   min-height: 80%;
@@ -465,7 +465,7 @@ nav.header .nav-large .ul-open ul li a:hover {
   color: black;
 }
 
-.logout-box p {
+.error-box p {
   padding: 0.5rem 0;
   line-height: 1.3rem;
 }
@@ -494,7 +494,7 @@ body a:hover {
 }
 
 footer {
-  background-color: #3e4646;
+  background-color: #0f332f;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;

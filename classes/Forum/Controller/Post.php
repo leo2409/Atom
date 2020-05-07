@@ -15,6 +15,7 @@ class Post {
     public function home() {
         $posts = [];
         $posts = $this->homePosts();
+        $user = $this->authentication->getUser();
         if (isset($_GET['firstA'])) {
             $templates = [
                 'login_success.html.php',
@@ -30,12 +31,14 @@ class Post {
             'templates' =>$templates,
             'variables' => [
                 'posts' => $posts ?? NULL,
+                'user' => $user,
             ],
         ];
     }
 
     public function edit() {
         $title = 'Edit Post';
+        $user = $this->authentication->getUser();
         if (isset($_GET['id'])) {
             $post = $this->postTable->findById($_GET['id']);
         }
@@ -46,12 +49,21 @@ class Post {
             ],
             'variables' => [
                 'post' => $post ?? NULL,
+                'userid' => $user['id'] ?? NULL,
             ],
         ];
     }
 
     public function saveEdit() {
         $user = $this->authentication->getUser();
+
+        if (!empty($_POST['post']['id'])) {
+            $postA = $this->postTable->findById($_POST['post']['id']);
+
+            if ($user['id'] != $postA['user_id']) {
+                return;
+            }
+        }
 
         $fields = $_POST['post'];
         $fields['date'] = new \DateTime();
@@ -62,6 +74,13 @@ class Post {
     }
 
     public function delete() {
+        $user = $this->authentication->getUser();
+        $post = $this->postTable->findById($_GET['id']);
+
+        if ($post['user_id'] != $user['id']) {
+            return;
+        }
+
         $this->postTable->remove($_GET['id']);
 
         header('location: index.php?route=home');
